@@ -1,1 +1,0 @@
-web: gunicorn FINDUS_BOT:app --timeout 600
