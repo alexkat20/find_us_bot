@@ -24,9 +24,6 @@ new_data = {
 }
 
 
-#  print(data.columns)
-
-
 @bot.message_handler(commands=["start"])
 def get_info(message):
     keyboard = telebot.types.ReplyKeyboardMarkup()
@@ -42,8 +39,6 @@ def process_info(message):
         bot.send_message(message.chat.id, "Hello, enter your data, separated by comma: x, y, z")
         bot.register_next_step_handler(message, get_data)
 
-        print(data.info())
-
 
 def get_data(message):
     values = [int(number) for number in message.text.split(",")]
@@ -52,8 +47,6 @@ def get_data(message):
     new_data["Third try"] = values[2]
     new_data["Maximum"] = max(values)
     new_data["Date"] = pd.to_datetime(datetime.today().date())
-
-    print(new_data["Date"])
 
     bot.send_message(
         message.chat.id,
