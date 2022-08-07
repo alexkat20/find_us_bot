@@ -1,1 +1,1 @@
-web: gunicorn peak_flow_bot:app --timeout 600
+web: gunicorn peak_flow_bot:worker --timeout 600
