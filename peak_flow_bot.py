@@ -24,8 +24,6 @@ new_data = {
 }
 
 
-
-
 @bot.message_handler(commands=["start"])
 def get_info(message):
     keyboard = telebot.types.ReplyKeyboardMarkup()
@@ -42,7 +40,6 @@ def process_info(message):
         bot.register_next_step_handler(message, get_data)
 
 
-
 def get_data(message):
     values = [int(number) for number in message.text.split(",")]
     new_data["First try"] = values[0]
@@ -50,7 +47,6 @@ def get_data(message):
     new_data["Third try"] = values[2]
     new_data["Maximum"] = max(values)
     new_data["Date"] = pd.to_datetime(datetime.today().date())
-
 
     bot.send_message(
         message.chat.id,
